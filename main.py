@@ -73,7 +73,7 @@ def checkIfOnlyAlphabetsOrSpaceArePresentInTheString(string):
 
 def validateRollNumber(rollNumber):
     if (len(rollNumber) == 10):
-        listToCheck  = ['2','4','r','a','1','a'] # Validating The First 6 Characters Of The rollNumber For Only First Year Students.
+        listToCheck  = ['2','4','r','a','1','a'] # Validating The First 6 Characters Of The rollNumber For First Year Students Of our College (Since All The First Year Students of our College Have first 6 Lettrs Common in the Roll Number).
         count = 0
         while(count <= 5):
             if(listToCheck[count] == rollNumber[count]):
@@ -288,7 +288,7 @@ else:
 if (excelAppendResult == 0):
     print("All Your Responses Has Been Saved In Our DataBase🎊🎉, Yo can Leave! Thank You For Your Patience😊!")
 else:
-    print("Your Responses Has Not Been Saved In Our DataBase⚠️, So Please Inform To The Professor!")
+    print("Your Responses Has Not Been Saved In Our DataBase⚠️, So Please Inform To The Teaching Assistant/Technical Staff!")
 
 
 
