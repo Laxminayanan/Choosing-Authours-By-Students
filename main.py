@@ -4,6 +4,8 @@ import remainingAuthourCodes
 import siNo
 dictionaryofAuthoursForReference  = availableDictionaryOfAuthours.remainingAuthorsDict
 import os
+import registeredStudentsTillNow
+import registeredRollNumbersTillNow
 
 
 def AppendReposesofTheStudentsFromTheSecondRun(name, newRowData):
@@ -36,6 +38,16 @@ def validateEnteredName(enteredName):
     elif (checkIfOnlyAlphabetsOrSpaceArePresentInTheString(enteredName) == False):
         return False
     else:
+        dupOfRegisteredStudentsTillNow = registeredStudentsTillNow.registeredTillNow
+        for i in dupOfRegisteredStudentsTillNow:
+            if enteredName ==  i:
+                return False
+            
+        # OverWrittingregisteredStudentsTillNow
+        dupOfRegisteredStudentsTillNow.append(enteredName)
+        toOverwriteDupOfRegisteredStudentsTillNow = dupOfRegisteredStudentsTillNow
+        with open('registeredStudentsTillNow.py', 'w') as f:
+            f.write(f'registeredTillNow = {toOverwriteDupOfRegisteredStudentsTillNow}\n')
         return True
 
 
@@ -69,6 +81,16 @@ def validateRollNumber(rollNumber):
                 continue
             else:
                 return False
+        dupOfRegisteredRollNumbersTillNow = registeredRollNumbersTillNow.registedRollNumbers
+        for i in dupOfRegisteredRollNumbersTillNow:
+            if rollNumber ==  i:
+                return False
+            
+        # OverWrittingregisteredRollNumbersTillNow
+        dupOfRegisteredRollNumbersTillNow.append(rollNumber)
+        toOverwriteDupOfRegisteredRollNumbersTillNow = dupOfRegisteredRollNumbersTillNow
+        with open('registeredRollNumbersTillNow.py', 'w') as f:
+            f.write(f'registedRollNumbers = {toOverwriteDupOfRegisteredRollNumbersTillNow}\n')
         return True
     else:
         return False
@@ -125,9 +147,9 @@ class StudentInformation:
 
     # Student Name
     def takeTheNameOfTheStudent(self):
-        self.name = input("Enter Your Name: ").strip()
+        self.name = input("Please enter your Full Name (including your surname): ").strip()
         while(validateEnteredName(self.name) != True):
-            self.name = input("It's Seems To Be Entered \'Name\' is Not Valid!, So Please Enter Your Name Again: ").strip()
+            self.name = input("It's Seems To Be Entered \'Name\' is Not Valid!, So Please Enter Your Full Name Again: ").strip()
 
     # Student Roll Number
     def takeTheRollNumberOfTheStudent(self):
