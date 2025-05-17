@@ -1,0 +1,16 @@
+🧩 *Problem Statement*
+
+In classroom environments, organizing student seminar presentations often involves manually assigning topics (Authour In This Case), which can lead to issues such as duplicate selections, inconsistent record-keeping, and inefficient communication between students and faculty. With increasing class sizes and the need for streamlined academic coordination, traditional methods fall short in ensuring fairness, traceability, and ease of use.
+
+There is a need for a *robust, user-friendly, and automated system* that allows students to *uniquely select one Topic (Authour In This Case)* from a predefined list for seminar presentations. The system should validate student identity, prevent duplicate selections, and maintain persistent records in an organized format that faculty can easily review.
+
+To address this, a *Console-Based Author Allocation System* is proposed. This system will:
+
+* Provide real-time validation for student inputs (name, roll number, branch, section),
+* Present an interactive and updated list of available authors with unique codes,
+* Ensure that each author is chosen only once,
+* Save student selections and associated metadata (e.g., serial number, timestamp) to an Excel sheet.
+* Maintain data consistency across sessions by updating supporting Python files that track availability and serial numbers.
+
+This solution aims to *digitize, automate, and streamline* the author/topic selection process—ensuring fairness, improving administrative efficiency, and offering flexibility for other academic allocation tasks such as project topic selection or elective course registration.
+*
