@@ -68,7 +68,6 @@ def rollNumbersGeneratorBasedOnSection(section,startSeries = None,startNumber = 
                 i+=1
             ordOfCurrentSeries = ord(currentSeries)
             currentSeries = chr(ordOfCurrentSeries + 1)
-        againStartWith = 'A'
         for i in range(65, 88): # F Section Only has 62 Students So , That is The Reason of The Roll Numbers Range => 24RA1A05W1 to 24RA1A05AW.
             toAppendRollNumber = constantFirst8CharactersofCSEBranch + 'A' + chr(i)
             rollNumbersOfFsection.append(toAppendRollNumber)
@@ -81,6 +80,34 @@ def rollNumbersGeneratorBasedOnSection(section,startSeries = None,startNumber = 
             else:
                 rollNumbersOfAsection.append(constantFirst8CharactersofCSEBranch + str(i))
         return rollNumbersOfAsection
+    elif(section.lower() == 'b'):
+        rollNumbersOfBsection = []
+        for i in range(65,100): # CSE - B Students From 24RA1A0565 to 24RA1A05C8
+            rollNumbersOfBsection.append(constantFirst8CharactersofCSEBranch + str(i))
+        currentSeries = 'A'
+        flag = True 
+        while(flag):
+            i = 0
+            while(i <= 9):
+                if(currentSeries == "A"):
+                    if (i >= 0):
+                        rollNumbersOfBsection.append(constantFirst8CharactersofCSEBranch + currentSeries + str(i))
+                    else:
+                        i+=1
+                        continue
+                elif(currentSeries  == "C"):
+                    if(i < 8):
+                        rollNumbersOfBsection.append(constantFirst8CharactersofCSEBranch + currentSeries + str(i))
+                    else:
+                        rollNumbersOfBsection.append(constantFirst8CharactersofCSEBranch + currentSeries + str(i))
+                        flag = False
+                        break
+                else:
+                    rollNumbersOfBsection.append(constantFirst8CharactersofCSEBranch + currentSeries + str(i))
+                i+=1
+            ordOfCurrentSeries = ord(currentSeries)
+            currentSeries = chr(ordOfCurrentSeries + 1)    
+        return rollNumbersOfBsection
     else:
         print(f"Currently Roll Numbers for Section {section} is Not Generatable!")        
 if __name__ == "__main__":
@@ -88,15 +115,19 @@ if __name__ == "__main__":
     # At Present I Only Need The Roll Numbers of The CSE - E and CSE - C.
     
     # rollNumbersOfASectionList = rollNumbersGeneratorBasedOnSection("A")
+    # rollNumbersOfBSectionList = rollNumbersGeneratorBasedOnSection("B")
     rollNumbersOfCSectionList = rollNumbersGeneratorBasedOnSection("C",'C',9,'J',2)
     # rollNumbersOfDSectionList = rollNumbersGeneratorBasedOnSection("D",'J',3,'P',6)
     rollNumbersOfESectionList = rollNumbersGeneratorBasedOnSection("E",'P',7,'W',0)
     # rollNumbersOfFSectionList = rollNumbersGeneratorBasedOnSection("F",'W',1)
     
+    
     print("\n\n\n\n")
     
     # print("A section Roll Numbers List: ")
     # print(rollNumbersOfASectionList,end = '\n\n\n\n\n') 
+    # print("B section Roll Numbers List: ")
+    # print(rollNumbersOfBSectionList,end = '\n\n\n\n\n') 
     print("C section Roll Numbers List: ")
     print(rollNumbersOfCSectionList,end = '\n\n\n\n\n')
     # print("D section Roll Numbers List: ")
@@ -105,5 +136,3 @@ if __name__ == "__main__":
     print(rollNumbersOfESectionList,end = '\n\n\n\n\n') 
     # print("F section Roll Numbers List: ")
     # print(rollNumbersOfFSectionList,end = '\n\n\n\n\n') 
-    
-    
