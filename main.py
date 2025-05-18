@@ -7,6 +7,11 @@ import os
 import registeredStudentsTillNow
 import registeredRollNumbersTillNow
 
+global cSectionRollNumbers
+cSectionRollNumbers = ['24RA1A05C9', '24RA1A05D0', '24RA1A05D1', '24RA1A05D2', '24RA1A05D3', '24RA1A05D4', '24RA1A05D5', '24RA1A05D6', '24RA1A05D7', '24RA1A05D8', '24RA1A05D9', '24RA1A05E0', '24RA1A05E1', '24RA1A05E2', '24RA1A05E3', '24RA1A05E4', '24RA1A05E5', '24RA1A05E6', '24RA1A05E7', '24RA1A05E8', '24RA1A05E9', '24RA1A05F0', '24RA1A05F1', '24RA1A05F2', '24RA1A05F3', '24RA1A05F4', '24RA1A05F5', '24RA1A05F6', '24RA1A05F7', '24RA1A05F8', '24RA1A05F9', '24RA1A05G0', '24RA1A05G1', '24RA1A05G2', '24RA1A05G3', '24RA1A05G4', '24RA1A05G5', '24RA1A05G6', '24RA1A05G7', '24RA1A05G8', '24RA1A05G9', '24RA1A05H0', '24RA1A05H1', '24RA1A05H2', '24RA1A05H3', '24RA1A05H4', '24RA1A05H5', '24RA1A05H6', '24RA1A05H7', '24RA1A05H8', '24RA1A05H9', '24RA1A05I0', '24RA1A05I1', '24RA1A05I2', '24RA1A05I3', '24RA1A05I4', '24RA1A05I5', '24RA1A05I6', '24RA1A05I7', '24RA1A05I8', '24RA1A05I9', '24RA1A05J0', '24RA1A05J1', '24RA1A05J2']
+global eSectionRollNumbers
+ecSectionRollNumbers = ['24RA1A05P7', '24RA1A05P8', '24RA1A05P9', '24RA1A05Q0', '24RA1A05Q1', '24RA1A05Q2', '24RA1A05Q3', '24RA1A05Q4', '24RA1A05Q5', '24RA1A05Q6', '24RA1A05Q7', '24RA1A05Q8', '24RA1A05Q9', '24RA1A05R0', '24RA1A05R1', '24RA1A05R2', '24RA1A05R3', '24RA1A05R4', '24RA1A05R5', '24RA1A05R6', '24RA1A05R7', '24RA1A05R8', '24RA1A05R9', '24RA1A05S0', '24RA1A05S1', '24RA1A05S2', '24RA1A05S3', '24RA1A05S4', '24RA1A05S5', '24RA1A05S6', '24RA1A05S7', '24RA1A05S8', '24RA1A05S9', '24RA1A05T0', '24RA1A05T1', '24RA1A05T2', '24RA1A05T3', '24RA1A05T4', '24RA1A05T5', '24RA1A05T6', '24RA1A05T7', '24RA1A05T8', '24RA1A05T9', '24RA1A05U0', '24RA1A05U1', '24RA1A05U2', '24RA1A05U3', '24RA1A05U4', '24RA1A05U5', '24RA1A05U6', '24RA1A05U7', '24RA1A05U8', '24RA1A05U9', '24RA1A05V0', '24RA1A05V1', '24RA1A05V2', '24RA1A05V3', '24RA1A05V4', '24RA1A05V5', '24RA1A05V6', '24RA1A05V7', '24RA1A05V8', '24RA1A05V9', '24RA1A05W0']
+
 
 def AppendReposesofTheStudentsFromTheSecondRun(name, newRowData):
     # Convert new row to DataFrame
@@ -70,10 +75,23 @@ def checkIfOnlyAlphabetsOrSpaceArePresentInTheString(string):
             return False
     return True
 
-
-def validateRollNumber(rollNumber):
+def checkWhetherEnteredRollNumberisBelongsToTheEnteredSectionOrNot(rollNumber,section):
+    if (section.lower() == "c"): # Checking In The Roll Numbers of Section "c"
+        for i in cSectionRollNumbers:
+            if rollNumber.upper() == i:
+                return True
+        else:
+            return False
+        # Add More Sections For Checking if Needed, As of Now My task is To Validate Roll Numbers of CSE - C and CSE - E Students.
+    else: # Checking In The Roll Numbers of Section "e"
+        for i in eSectionRollNumbers:
+            if rollNumber.upper() == i:
+                return True
+        else:
+            return False
+def validateRollNumber(rollNumber,section):
     if (len(rollNumber) == 10):
-        listToCheck  = ['2','4','r','a','1','a'] # Validating The First 6 Characters Of The rollNumber For First Year Students Of our College (Since All The First Year Students of our College Have first 6 Lettrs Common in the Roll Number).
+        listToCheck  = ['2','4','r','a','1','a'] # Validating The First 6 Characters Of The rollNumber For Only First Year Students.
         count = 0
         while(count <= 5):
             if(listToCheck[count] == rollNumber[count]):
@@ -85,13 +103,17 @@ def validateRollNumber(rollNumber):
         for i in dupOfRegisteredRollNumbersTillNow:
             if rollNumber ==  i:
                 return False
-            
-        # OverWrittingregisteredRollNumbersTillNow
-        dupOfRegisteredRollNumbersTillNow.append(rollNumber)
-        toOverwriteDupOfRegisteredRollNumbersTillNow = dupOfRegisteredRollNumbersTillNow
-        with open('registeredRollNumbersTillNow.py', 'w') as f:
-            f.write(f'registedRollNumbers = {toOverwriteDupOfRegisteredRollNumbersTillNow}\n')
-        return True
+        # Checking That is the entered Roll Number belongs To The entered Section Or Not
+        result = checkWhetherEnteredRollNumberisBelongsToTheEnteredSectionOrNot(rollNumber,section)
+        if result == True:
+            # OverWrittingregisteredRollNumbersTillNow
+            dupOfRegisteredRollNumbersTillNow.append(rollNumber)
+            toOverwriteDupOfRegisteredRollNumbersTillNow = dupOfRegisteredRollNumbersTillNow
+            with open('registeredRollNumbersTillNow.py', 'w') as f:
+                f.write(f'registedRollNumbers = {toOverwriteDupOfRegisteredRollNumbersTillNow}\n')
+            return True
+        else:
+            return False
     else:
         return False
 
@@ -147,14 +169,14 @@ class StudentInformation:
 
     # Student Name
     def takeTheNameOfTheStudent(self):
-        self.name = input("Please enter your Full Name (including your surname): ").strip()
+        self.name = input("Enter Your Name: ").strip()
         while(validateEnteredName(self.name) != True):
-            self.name = input("It's Seems To Be Entered \'Name\' is Not Valid!, So Please Enter Your Full Name Again: ").strip()
+            self.name = input("It's Seems To Be Entered \'Name\' is Not Valid!, So Please Enter Your Name Again: ").strip()
 
     # Student Roll Number
     def takeTheRollNumberOfTheStudent(self):
         self.rollNumber = input("Enter Your Full Roll Number like (24RA1A....): ").strip().lower()
-        while(validateRollNumber(self.rollNumber) != True):
+        while(validateRollNumber(self.rollNumber,self.section) != True):
             self.rollNumber = input("It's Seems To Be Entered \'Roll Number\' is Not Valid!, So Please Enter Your Full Roll Number Like (24RA1A....) Again: ").strip().lower()
 
 
@@ -252,15 +274,16 @@ student1 = StudentInformation()
 # Name
 student1.takeTheNameOfTheStudent()
 print("Entered Name: ",student1.name)
-# Roll Number
-student1.takeTheRollNumberOfTheStudent()
-print("Entered Roll Number: ",student1.rollNumber)
 # Branch
 student1.takeTheBranchOfTheStudent()
 print("Entered Branch: ",student1.branch)
 # Section
 student1.takeTheSectionOfTheStudent()
 print("Entered Section: ",student1.section)
+# Roll Number
+student1.takeTheRollNumberOfTheStudent()
+print("Entered Roll Number: ",student1.rollNumber)
+
 
 # Printing Left Over Authours Till Now In The Form Of A Table.
 printAvaialbleListofAuthours(availableDictionaryOfAuthours.remainingAuthorsDict)
@@ -286,9 +309,9 @@ if(siNo.siNo == 1):
 else:
     excelAppendResult = AppendReposesofTheStudentsFromTheSecondRun("StudentsAuthorsChoosenList",listOfAllResponsesOfEachStudent)
 if (excelAppendResult == 0):
-    print("All Your Responses Has Been Saved In Our DataBase🎊🎉, Yo can Leave! Thank You For Your Patience😊!")
+    print("All Your Responses Has Been Saved In Our DataBase🎊🎉, Yo can Leave! Thank You For Your Patience Interaction With The Program😊!")
 else:
-    print("Your Responses Has Not Been Saved In Our DataBase⚠️, So Please Inform To The Teaching Assistant/Technical Staff!")
+    print("Your Responses Has Not Been Saved In Our DataBase⚠️, So Please Inform To The Professor!")
 
 
 
