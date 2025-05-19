@@ -45,11 +45,11 @@ def validateEnteredName(enteredName):
     else:
         dupOfRegisteredStudentsTillNow = registeredStudentsTillNow.registeredTillNow
         for i in dupOfRegisteredStudentsTillNow:
-            if enteredName ==  i:
+            if enteredName.upper() ==  i:
                 return False
             
         # OverWrittingregisteredStudentsTillNow
-        dupOfRegisteredStudentsTillNow.append(enteredName)
+        dupOfRegisteredStudentsTillNow.append(enteredName.upper())
         toOverwriteDupOfRegisteredStudentsTillNow = dupOfRegisteredStudentsTillNow
         with open('registeredStudentsTillNow.py', 'w') as f:
             f.write(f'registeredTillNow = {toOverwriteDupOfRegisteredStudentsTillNow}\n')
@@ -169,7 +169,7 @@ class StudentInformation:
 
     # Student Name
     def takeTheNameOfTheStudent(self):
-        self.name = input("Enter Your Name: ").strip()
+        self.name = input("Enter Your Name With Complete Surname: ").strip()
         while(validateEnteredName(self.name) != True):
             self.name = input("It's Seems To Be Entered \'Name\' is Not Valid!, So Please Enter Your Name Again: ").strip()
 
