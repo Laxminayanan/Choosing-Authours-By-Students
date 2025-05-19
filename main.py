@@ -47,7 +47,7 @@ def validateEnteredName(enteredName):
         dupOfRegisteredStudentsTillNow.append(enteredName.upper())
         toOverwriteDupOfRegisteredStudentsTillNow = dupOfRegisteredStudentsTillNow
         with open('registeredStudentsTillNow.py', 'w') as f:
-            f.write(f'registeredTillNow = {toOverwriteDupOfRegisteredStudentsTillNow}\n')
+            f.write(f'registedTillNow = {toOverwriteDupOfRegisteredStudentsTillNow}\n')
         return True
 
 
