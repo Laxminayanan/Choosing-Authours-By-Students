@@ -43,7 +43,7 @@ def validateEnteredName(enteredName):
     elif (checkIfOnlyAlphabetsOrSpaceArePresentInTheString(enteredName) == False):
         return False
     else:
-        dupOfRegisteredStudentsTillNow = registeredStudentsTillNow.registeredTillNow
+        dupOfRegisteredStudentsTillNow = registeredStudentsTillNow.registedTillNow
         for i in dupOfRegisteredStudentsTillNow:
             if enteredName.upper() ==  i:
                 return False
