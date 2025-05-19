@@ -30,6 +30,8 @@ def AppendReposesofTheStudentsFromTheSecondRun(name, newRowData):
 
 # Student Information
 
+dupOfRegisteredStudentsTillNow = registeredStudentsTillNow.registedTillNow
+
 def validateEnteredName(enteredName):
     if (len(enteredName) == 0):
         return False
@@ -38,16 +40,11 @@ def validateEnteredName(enteredName):
     elif (checkIfOnlyAlphabetsOrSpaceArePresentInTheString(enteredName) == False):
         return False
     else:
-        dupOfRegisteredStudentsTillNow = registeredStudentsTillNow.registedTillNow
+        
         for i in dupOfRegisteredStudentsTillNow:
             if enteredName.upper() ==  i:
                 return False
-            
-        # OverWrittingregisteredStudentsTillNow
         dupOfRegisteredStudentsTillNow.append(enteredName.upper())
-        toOverwriteDupOfRegisteredStudentsTillNow = dupOfRegisteredStudentsTillNow
-        with open('registeredStudentsTillNow.py', 'w') as f:
-            f.write(f'registedTillNow = {toOverwriteDupOfRegisteredStudentsTillNow}\n')
         return True
 
 
@@ -88,6 +85,7 @@ def checkWhetherEnteredRollNumberisBelongsToTheEnteredSectionOrNot(rollNumber,se
             return False
     else:
         return False
+dupOfRegisteredRollNumbersTillNow = registeredRollNumbersTillNow.registedRollNumbers
 def validateRollNumber(rollNumber,section):
     if (len(rollNumber) == 10):
         listToCheck  = ['2','4','r','a','1','a'] # Validating The First 6 Characters Of The rollNumber For Only First Year Students.
@@ -98,18 +96,13 @@ def validateRollNumber(rollNumber,section):
                 continue
             else:
                 return False
-        dupOfRegisteredRollNumbersTillNow = registeredRollNumbersTillNow.registedRollNumbers
         for i in dupOfRegisteredRollNumbersTillNow:
             if rollNumber ==  i:
                 return False
         # Checking That is the entered Roll Number belongs To The entered Section Or Not
         result = checkWhetherEnteredRollNumberisBelongsToTheEnteredSectionOrNot(rollNumber,section)
         if result == True:
-            # OverWrittingregisteredRollNumbersTillNow
             dupOfRegisteredRollNumbersTillNow.append(rollNumber)
-            toOverwriteDupOfRegisteredRollNumbersTillNow = dupOfRegisteredRollNumbersTillNow
-            with open('registeredRollNumbersTillNow.py', 'w') as f:
-                f.write(f'registedRollNumbers = {toOverwriteDupOfRegisteredRollNumbersTillNow}\n')
             return True
         else:
             return False
@@ -321,8 +314,17 @@ dupOfSiNo += 1
 with open('siNo.py', 'w') as f:
     f.write(f'siNo = {dupOfSiNo}\n')
 
+# OverWrittingregisteredRollNumbersTillNow
+toOverwriteDupOfRegisteredRollNumbersTillNow = dupOfRegisteredRollNumbersTillNow
+with open('registeredRollNumbersTillNow.py', 'w') as f:
+    f.write(f'registedRollNumbers = {toOverwriteDupOfRegisteredRollNumbersTillNow}\n')
 
 
+# OverWrittingregisteredStudentsTillNow
+toOverwriteDupOfRegisteredStudentsTillNow = dupOfRegisteredStudentsTillNow
+with open('registeredStudentsTillNow.py', 'w') as f:
+    f.write(f'registedTillNow = {toOverwriteDupOfRegisteredStudentsTillNow}\n')
+    
 # OverWrittingThedictionaryOfAuthours
 dupOfauthorsDict = availableDictionaryOfAuthours.remainingAuthorsDict
 del dupOfauthorsDict[enteredAuthourCode]
