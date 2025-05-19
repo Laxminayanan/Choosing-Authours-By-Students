@@ -8,11 +8,6 @@ import registeredStudentsTillNow
 import registeredRollNumbersTillNow
 
 
-
-
-
-
-
 def AppendReposesofTheStudentsFromTheSecondRun(name, newRowData):
     # Convert new row to DataFrame
     new_df = pd.DataFrame([newRowData],columns=[ 'SI.No ','NameOfTheStudent', 'RollNumberOfTheStudent', 'Branch', 'Section', 'ChoosenAuthourName'])
