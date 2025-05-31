@@ -35,7 +35,7 @@ dupOfRegisteredStudentsTillNow = registeredStudentsTillNow.registedTillNow
 def validateEnteredName(enteredName):
     if (len(enteredName) == 0):
         return False
-    elif (checkForMoreThanOneSpace(enteredName) == False):
+    elif (checkForMoreThanTwoSpace(enteredName) == False):
         return False
     elif (checkIfOnlyAlphabetsOrSpaceArePresentInTheString(enteredName) == False):
         return False
@@ -48,13 +48,13 @@ def validateEnteredName(enteredName):
         return True
 
 
-def checkForMoreThanOneSpace(string):
+def checkForMoreThanTwoSpace(string):
     count = 0
     for i in string:
         asciiOfi = ord(i)
         if asciiOfi == 32:
             count+=1
-    if (count == 1 or count == 0):
+    if (count == 1 or count == 0 or count == 2):
         return True
     else:
         return False
