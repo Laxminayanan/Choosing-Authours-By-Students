@@ -40,10 +40,6 @@ def validateEnteredName(enteredName):
     elif (checkIfOnlyAlphabetsOrSpaceArePresentInTheString(enteredName) == False):
         return False
     else:
-        
-        for i in dupOfRegisteredStudentsTillNow:
-            if enteredName.upper() ==  i:
-                return False
         dupOfRegisteredStudentsTillNow.append(enteredName.upper())
         return True
 
