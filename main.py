@@ -61,7 +61,7 @@ def checkForMoreThanTwoSpace(string):
 def checkIfOnlyAlphabetsOrSpaceArePresentInTheString(string):
     for i in string:
         asciiOfi = ord(i)
-        if ((asciiOfi >= 65 and asciiOfi <= 90) or (asciiOfi >= 97 and asciiOfi <= 122) or (' ')):
+        if ((asciiOfi >= 65 and asciiOfi <= 90) or (asciiOfi >= 97 and asciiOfi <= 122) or (asciiOfi == 32)):
             continue
         else:
             return False
