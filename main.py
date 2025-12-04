@@ -299,12 +299,12 @@ else:
 if (excelAppendResult == 0):
     print("All Your Responses Has Been Saved In Our DataBase🎊🎉, Yo can Leave! Thank You For Your Patience Interaction With The Program😊!")
 else:
-    print("Your Responses Has Not Been Saved In Our DataBase⚠️, So Please Inform To The Professor!")
+    print("Your Responses Has Not Been Saved In Our DataBase⚠️, So Please Inform To The Instructor!")
 
 
 
 
-# OverWrittingTheSiNoInTheEveryRubOfTheProgram
+# OverWrittingTheSiNoInTheEveryRunOfTheProgram
 dupOfSiNo = siNo.siNo
 dupOfSiNo += 1
 with open('siNo.py', 'w') as f:
