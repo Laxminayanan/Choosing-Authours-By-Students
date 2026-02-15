@@ -3,11 +3,11 @@
 
 ## Overview
 
-This `Console(CLI)` Based Python Project allows each student in a class to uniquely select one author from a predefined list of 118 authors to present a seminar on. It validates student inputs, ensures no two students can choose the same author, and records all selections in an Excel file.
+This `Console(CLI)` based python project allows each student in a class to uniquely select one author from a predefined list of 118 authors to present a seminar on. It validates student inputs, ensures no two students can choose the same author, and records all selections in an Excel file.
 
 ## Key Features
 
-### 1. Robust Input Validation
+### 1. *Robust Input Validation*
 - *Name*: Must contain only alphabets and at most one space.
 - *Roll Number*: Must follow the pattern for first-year students as per our College, (e.g., starts with 24RA1A.... and is 10 characters long).
 - *Branch*: Only specific branches (CSE, CSD, CSM, ECE, MECH, CIVIL) are allowed.
