@@ -74,7 +74,7 @@ All Your Responses Has Been Saved In Our DataBase🎊🎉, You can Leave! Thank 
 ```
 ---
 
--  `This Project was created as part of a mini-project to streamline and digitize seminar author selection for students in a classroom environment.`
+-  `This project was created as part of a mini-project to streamline and digitize seminar author selection for students in a classroom environment.`
 ---
 
 # Use Case Flexibility:
