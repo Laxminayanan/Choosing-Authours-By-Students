@@ -8,7 +8,6 @@ def validateEnteredName(enteredName):
     else:
         return True
 
-
 def checkForMoreThanOneSpace(string):
     count = 0
     for i in string:
@@ -19,6 +18,7 @@ def checkForMoreThanOneSpace(string):
         return True
     else:
         return False
+        
 def checkIfOnlyAlphabetsOrSpaceArePresentInTheString(string):
     for i in string:
         asciiOfi = ord(i)
@@ -27,7 +27,6 @@ def checkIfOnlyAlphabetsOrSpaceArePresentInTheString(string):
         else:
             return False
     return True
-
 
 def validateRollNumber(rollNumber):
     if (len(rollNumber) == 10):
@@ -43,7 +42,6 @@ def validateRollNumber(rollNumber):
     else:
         return False
 
-
 def checkIfOnlyLowerAlphabetsArePresentInTheString(string):
     for i in string:
         asciiOfi = ord(i)
@@ -52,7 +50,6 @@ def checkIfOnlyLowerAlphabetsArePresentInTheString(string):
         else:
             return False
     return True
-
 
 def validateBranch(branch):
     if(len(branch) <= 2):
@@ -68,7 +65,6 @@ def validateBranch(branch):
             else:
                 continue
         return False
-
 
 def validateSection(section):
     if(len(section) != 1):
@@ -119,9 +115,6 @@ class StudentInformation:
         while(validateSection(self.section) != True):
             self.section = input("It's Seems To Be Entered \'Section\' is Not Valid!, So Please Enter Your Section Again: ").strip().lower()
 
-
-
-
 if __name__ == "__main__":
     #  Creating The Instance/Object of The Class
     student1 = StudentInformation()
@@ -137,4 +130,3 @@ if __name__ == "__main__":
     # Section
     student1.takeTheSectionOfTheStudent()
     print("Entered Section: ",student1.section)
-
