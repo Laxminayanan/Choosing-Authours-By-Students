@@ -1,7 +1,7 @@
 global constantFirst8CharactersofCSEBranch
 constantFirst8CharactersofCSEBranch = "24RA1A05"
 def returnTheRollNumbers(startSeries,startNumber,endSeries,endNumber):
-    listOfRollNumbers = []  # CSE - C Roll Numbers Starts From 24RA1A05D6 to 24RA1A05J2, CSE - D Roll Numbers Starts From 24RA1A05J3 to 24RA1AP6 and similarly CSE - E Roll Numbers Starts From 24RA1A05P7 to 24RA1A05W0.
+    listOfRollNumbers = []  # CSE - C Roll Numbers Starts From 24RA1A05C9 to 24RA1A05J2, CSE - D Roll Numbers Starts From 24RA1A05J3 to 24RA1A05P6 and similarly CSE - E Roll Numbers Starts From 24RA1A05P7 to 24RA1A05W0.
     currentSeries = startSeries
     NumberOfStudentsInTheClass = 64
     count = 0
@@ -136,3 +136,4 @@ if __name__ == "__main__":
     print(rollNumbersOfESectionList,end = '\n\n\n\n\n') 
     # print("F section Roll Numbers List: ")
     # print(rollNumbersOfFSectionList,end = '\n\n\n\n\n') 
+
