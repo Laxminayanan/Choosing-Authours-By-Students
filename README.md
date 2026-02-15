@@ -38,7 +38,7 @@ This `Console(CLI)` based python project allows each student in a class to uniqu
 
 ## Setup Instructions
 
-1. *Clone the repository*
+1. Clone the repository
 ```bash
 git clone https://github.com/Laxminayanan/Choosing-Authours-By-Students.git
 ```
