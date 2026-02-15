@@ -7,18 +7,18 @@ This `Console(CLI)` based python project allows each student in a class to uniqu
 
 ## Key Features
 
-### 1. *Robust Input Validation*
+### 1. Robust Input Validation
 - *Name*: Must contain only alphabets and at most one space.
 - *Roll Number*: Must follow the pattern for first-year students as per our College, (e.g., starts with 24RA1A.... and is 10 characters long).
 - *Branch*: Only specific branches (CSE, CSD, CSM, ECE, MECH, CIVIL) are allowed.
 - *Section*: Only valid sections (A, B, C, D, E, F) are accepted.
 
-### 2. *Author Selection*
+### 2. Author Selection
 - Authors are displayed in a formatted table with corresponding unique Codes/Numbers.
 - Students must enter the Code/Number of the author they wish to choose.
 - Once selected, the author is removed from the available Pool/List.
 
-### 3. *Data Persistence*
+### 3. Data Persistence
 - Student responses are saved to an Excel file named StudentsAuthorsChoosenList.xlsx.
 - On the first run, the Excel file is created; subsequent runs append new student entries.
 - Author availability is maintained across sessions by overwriting:
@@ -26,10 +26,10 @@ This `Console(CLI)` based python project allows each student in a class to uniqu
   - remainingAuthourCodes.py
   - siNo.py (serial number tracker)
 
-### 4. *Excel Integration*
+### 4. Excel Integration
 - I Had Used `pandas` and `openpyxl` to write student information and chosen authors to Excel.
 
-### 5. *Sequential Record-Keeping*
+### 5. Sequential Record-Keeping
 - Maintains a serial number (SI.No) for each entry and auto-increments it every time the script is run.
 
 ---
